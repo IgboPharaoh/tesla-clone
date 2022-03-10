@@ -1,11 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import Section from './Section'
+import { pageProperties } from './utils/Utils'
 
 const Home = () => {
   return (
     <Container>
-        <Section/>
+        {pageProperties.map((item) => (   
+            <Section
+                key = {item.id}
+                title= {item.title}
+                description ={item.description}
+                backgroundImg={item.img}
+                leftBtnText = {item.leftbtntext}
+                rightBtnText = {item.rightbtntext}
+            />
+        ))}
     </Container>
   )
 }
