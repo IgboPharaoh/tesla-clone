@@ -14,6 +14,7 @@ const Home = () => {
                 backgroundImg={item.img}
                 leftBtnText = {item.leftbtntext}
                 rightBtnText = {item.rightbtntext}
+                downArrow={item.downarrow}
             />
         ))}
     </Container>
