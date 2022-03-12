@@ -2,23 +2,24 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import logo from '../images/logo.svg'
 import { sideNav } from './utils/Utils'
+import {selectCars} from '../features/counter/car/carSlice'
+import {useSelector} from 'react-redux'
 
 const Header = () => {
   
   const [sideNavOpen, setSideNavOpen] = useState(false)
-
+  const cars = useSelector(selectCars)
+  
   return (
     <Container>
       <a href="www." className="logo">
         <img src={logo} alt="tesa-logo"/>
       </a>
       <Menu>
-        <a href='www.'>Model S</a>
-        <a href='www.'>Model Y</a>
-        <a href='www.'>Model 3</a>
-        <a href='www.'>Model X</a>
-        <a href='www.'>Solar Roof</a>
-        <a href='www.'>Solar Panels</a>
+        {cars && cars.map((car, index) => (
+          <a key={index} href='www.'>{car}</a>
+        ))}
+       
       </Menu>
       <RightMenu>
         <a href='www.'>Shop</a>
